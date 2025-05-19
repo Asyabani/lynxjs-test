@@ -1,47 +1,106 @@
 :root {
-  background-color: #000;
-  --color-text: #fff;
+  background-color: #eeebeb;
+  --color-text: #000000;
 }
-
-.Background {
-  position: fixed;
-  background: radial-gradient(
-    71.43% 62.3% at 46.43% 36.43%,
-    rgba(18, 229, 229, 0) 15%,
-    rgba(239, 155, 255, 0.3) 56.35%,
-    #ff6448 100%
-  );
-  box-shadow: 0px 12.93px 28.74px 0px #ffd28db2 inset;
-  border-radius: 50%;
-  width: 200vw;
-  height: 200vw;
-  top: -60vw;
-  left: -14.27vw;
-  transform: rotate(15.25deg);
-}
-
-.App {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 text {
   color: var(--color-text);
 }
-
-.Banner {
-  flex: 5;
+/* Custom */
+.container{
+  margin: 0px;
+}
+.navbar{
+  gap: 12px; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  background-color: transparent; /* atau warna sesuai kebutuhan */
+  padding: 10px;
+}
+.d-flex{
+  display: flex;
+}
+.align-items-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Contect Button */
+.ContactButton {
+  background-color: #8b8b8b; 
+  color: #111827;           
+  padding: 8px 16px;
+  border-radius: 9999px;    
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.ContactButton:hover {
+  background-color: #d1d5db; 
+}
+/* Hamburger */
+.hamburger {
+  margin-top: 14px;
+  width: 25px;
+  height: 19px;
+  position: relative;
+  z-index: 1001;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
+  justify-content: space-between;
 }
 
+.bar {
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 4px;
+  transition: 0.4s;
+}
+
+/* Animation to X */
+.bar.top.open {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.bar.middle.open {
+  opacity: 0;
+}
+.bar.bottom.open {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Fullscreen Overlay Menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  opacity: 0.95;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.menu text {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+/* Logo */
 .Logo {
   flex-direction: column;
   align-items: center;
@@ -50,16 +109,26 @@ text {
 }
 
 .Logo--react {
-  width: 100px;
-  height: 100px;
+  width: 30px;
+  height: 30px;
   animation: Logo--spin infinite 20s linear;
+  margin-top: 30px;
+}
+.Logo--EG {
+  width: 60px;
+  height: 60px;
+  animation: Logo--shake infinite 0.5s ease;
+  display: block;
+  margin: 40px auto; /* Tengah secara horizontal */
 }
 
 .Logo--lynx {
-  width: 100px;
-  height: 100px;
+  width: 30px;
+  height: 30px;
   animation: Logo--shake infinite 0.5s ease;
+  margin-top: 30px;
 }
+
 
 @keyframes Logo--spin {
   from {
@@ -81,23 +150,28 @@ text {
     transform: scale(1);
   }
 }
-
-.Content {
+.title {
+  font-size: 16px;
+  font-weight: 700;
   display: flex;
-  flex-direction: column;
+  margin-top: 34px;
+}
+.section1{
+  margin-top: 80px;
+}
+.section1 .title {
+  font-size: 22px;
+  display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.Arrow {
-  width: 24px;
-  height: 24px;
-}
-
-.Title {
-  font-size: 36px;
-  font-weight: 700;
-}
+  text-align: center;
+} 
+.section1 .subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+} 
 
 .Subtitle {
   font-style: italic;
@@ -105,15 +179,12 @@ text {
   font-weight: 600;
   margin-bottom: 8px;
 }
-
-.Description {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 15rpx;
-}
-
-.Hint {
+.navTitle{
   font-size: 12px;
-  margin: 5px;
-  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+}
+/* Game */
+.gameContainer{
+  margin-top: 80px;
+  padding:10px;
 }
